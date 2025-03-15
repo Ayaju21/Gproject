@@ -132,7 +132,7 @@
 
                 app:cornerRadius="10dp" />
 
-            <!-- Leav Button -->
+            <!-- Leave Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLeave"
                 android:layout_width="20dp"
