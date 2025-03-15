@@ -1,0 +1,11 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize if needed -->
+    </style>
+
+    <!-- Custom Button Style -->
+    <style name="CustomButtonStyle">
+        <item name="android:background">#052659</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>
