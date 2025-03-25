@@ -1,170 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/top_bar_gradient">
+    android:background="#1B3B6F">
 
     <!-- Top Bar Content -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="30dp">
-
-        <!-- Left Side: Hamburger Menu and Dashboard Text -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="start|center_vertical">
-
-            <!-- Hamburger Menu and Dashboard Text -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="start">
-
-                <!-- Hamburger Menu Icon -->
-                <ImageView
-                    android:id="@+id/menuIcon"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@android:drawable/ic_menu_sort_by_size"
-                    android:contentDescription="Menu Icon"
-                    android:layout_marginBottom="8dp"/>
-
-                <!-- Dashboard Text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DASHBOARD"
-                    android:textSize="34sp"
-                    android:textStyle="bold"
-                    android:textColor="#FFFFFF"
-                    android:shadowColor="#000000"
-                    android:shadowDx="2"
-                    android:shadowDy="2"
-                    android:shadowRadius="4"/>
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <!-- Right Side: Profile Icon -->
-        <ImageView
-            android:id="@+id/profileIcon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@android:drawable/ic_menu_gallery"
-            android:contentDescription="Profile"
-            android:layout_gravity="end"
-            android:padding="6dp"
-            android:scaleType="centerCrop"
-            android:clipToOutline="true" />
-    </LinearLayout>
+    <!-- Date and Hours Section -->
 
     <!-- Buttons Card -->
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Hamburger Menu Icon -->
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="Menu Icon"
+            android:src="@android:drawable/ic_menu_sort_by_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="180dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:shadowColor="#000000"
+            android:shadowRadius="4"
+            android:text="Dashboard"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dateHoursSection"
+        android:layout_width="358dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintWidth_percent="0.9">
+
+        <!-- Date (e.g., May, 2024) -->
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="May, 2024"
+            android:textColor="#FDFCFC"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Hours (e.g., 21:10:07 Hours) -->
+        <TextView
+            android:id="@+id/hoursText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="21:10:07 Hours"
+            android:textColor="#F8F8F8"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Circular Progress (Placeholder) -->
+        <ProgressBar
+            android:id="@+id/hoursProgress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:progress="70"
+            android:progressTint="#E7EAEF" />
+    </LinearLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewButtons"
         android:layout_width="match_parent"
-        android:layout_height="628dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="40dp"
-        app:cardBackgroundColor="#F2F2F3"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="45dp"
-        app:cardElevation="5dp">
+        app:cardElevation="5dp"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintTop_toBottomOf="@id/dateHoursSection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.5">
 
-        <!-- Buttons Layout -->
-        <GridLayout
+        <!-- ConstraintLayout to center the GridLayout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="517dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:columnCount="2"
-            android:padding="16dp"
-            android:rowCount="2">
+            android:layout_height="456dp">
+
+            <!-- Buttons Layout -->
+            <GridLayout
+                android:id="@+id/buttonsGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:rowCount="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
 
+                <!-- Month Days Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMonthDays"
+                    android:layout_width="166dp"
+                    android:layout_height="100dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:backgroundTint="#1B3B6F"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="MONTH DAYS\n31"
+                    android:textColor="#F1EAEA"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="15dp"
+                    app:layout_constraintWidth_percent="0.45" />
 
-            <!-- Attendance Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAttendance"
-                android:layout_width="22dp"
-                android:layout_height="130dp"
-                android:layout_row="0"
-                android:layout_rowWeight="1"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_margin="16dp"
-                android:backgroundTint="#457EC1"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="Attendance"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:cornerRadius="10dp"
-                tools:ignore="DuplicateIds" />
+                <!-- Present Days Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPresentDays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:backgroundTint="#1B3B6F"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="PRESENT DAYS\n2"
+                    android:textColor="#F4F1F1"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="15dp"
+                    app:layout_constraintWidth_percent="0.45" />
 
-            <!-- Salary Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSalary"
-                android:layout_width="20dp"
-                android:layout_height="130dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="16dp"
-                android:backgroundTint="#457EC1"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="Salary"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                <!-- Absent Days Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAbsentDays"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:backgroundTint="#1B3B6F"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="ABSENT DAYS\n7"
+                    android:textColor="#FBFAFA"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="15dp"
+                    app:layout_constraintWidth_percent="0.45" />
 
-                app:cornerRadius="10dp" />
 
-            <!-- Leave Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLeave"
-                android:layout_width="20dp"
-                android:layout_height="130dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="16dp"
-                android:backgroundTint="#457EC1"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="Leave Requests"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:cornerRadius="10dp" />
+                <!-- Leaves Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBadRecords"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:backgroundTint="#1B3B6F"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="BAD RECORDS\n1"
+                    android:textColor="#F8F7F7"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="15dp"
+                    app:layout_constraintWidth_percent="0.45" />
 
-            <!-- Overtime Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnOver"
-                android:layout_width="20dp"
-                android:layout_height="130dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="16dp"
-                android:backgroundTint="#457EC1"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="Overtime Requests"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:cornerRadius="10dp" />
-        </GridLayout>
+                <!-- Bad Records Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLeaves"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:backgroundTint="#1B3B6F"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="LEAVES\n0"
+                    android:textColor="#F8F7F7"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="15dp"
+                    app:layout_constraintWidth_percent="0.45" />
+
+                <!-- Holidays Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnHolidays"
+                    android:layout_width="10dp"
+                    android:layout_height="100dp"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="12dp"
+                    android:backgroundTint="#1B3B6F"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="HOLIDAYS\n0"
+                    android:textColor="#F8F5F5"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="15dp"
+                    app:layout_constraintWidth_percent="0.45" />
+            </GridLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

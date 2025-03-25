@@ -1,71 +1,52 @@
 package com.example.worksync;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.button.MaterialButton;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView dateText;
+    private TextView hoursText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize top bar icons
-        ImageView menuIcon = findViewById(R.id.menuIcon);
-        ImageView profileIcon = findViewById(R.id.profileIcon);
+        dateText = findViewById(R.id.dateText);
+        hoursText = findViewById(R.id.hoursText);
 
-        // Initialize buttons
-        MaterialButton btnAttendance = findViewById(R.id.btnAttendance);
-        MaterialButton btnSalary = findViewById(R.id.btnSalary);
-        MaterialButton btnLeave = findViewById(R.id.btnLeave);
-        MaterialButton btnOver = findViewById(R.id.btnOver);
+        updateDate();
 
-        // Set click listeners for top bar icons
-        menuIcon.setOnClickListener(new View.OnClickListener() {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Menu clicked", Toast.LENGTH_SHORT).show();
+            public void run() {
+                runOnUiThread(() -> updateHours());
             }
-        });
+        }, 0, 1000);
+    }
 
-        profileIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Profile clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void updateDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM, yyyy", Locale.getDefault());
+        String currentDate = dateFormat.format(new Date());
+        dateText.setText(currentDate);
+    }
 
-        // Set click listeners for buttons
-        btnAttendance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Attendance clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void updateHours() {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        String currentTime = timeFormat.format(new Date());
+        hoursText.setText(currentTime + " Hours");
+    }
 
-        btnSalary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Salary clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        btnLeave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Leave Requests clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        btnOver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Overtime Requests clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
