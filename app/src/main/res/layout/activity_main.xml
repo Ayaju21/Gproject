@@ -5,84 +5,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1B3B6F">
-
-    <!-- Top Bar Content -->
-    <!-- Date and Hours Section -->
-
-    <!-- Buttons Card -->
+    android:background="#D8B8DD">
 
     <LinearLayout
-        android:id="@+id/topBar"
+        android:id="@+id/userAccountSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Hamburger Menu Icon -->
         <ImageView
-            android:id="@+id/menuIcon"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="Menu Icon"
-            android:src="@android:drawable/ic_menu_sort_by_size" />
+            android:id="@+id/userProfileImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/user"
+            android:contentDescription="User Profile Image"
+            android:scaleType="centerCrop" />
 
-        <TextView
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mohamed El-Sayed"
+                android:textColor="#100F0F"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start|center_vertical"
-            android:layout_marginStart="180dp"
-            android:layout_weight="1"
-            android:gravity="start"
-            android:shadowColor="#000000"
-            android:shadowRadius="4"
-            android:text="Dashboard"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/locationIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/location"
+                android:contentDescription="Location Icon"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageView
+                android:id="@+id/notificationBell"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/bell"
+                android:contentDescription="Notification Bell"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/dateHoursSection"
-        android:layout_width="358dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBar"
-        app:layout_constraintWidth_percent="0.9">
+        app:layout_constraintTop_toBottomOf="@id/userAccountSection">
 
-        <!-- Date (e.g., May, 2024) -->
         <TextView
             android:id="@+id/dateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="May, 2024"
-            android:textColor="#FDFCFC"
+            android:textColor="#100F0F"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <!-- Hours (e.g., 21:10:07 Hours) -->
         <TextView
             android:id="@+id/hoursText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="21:10:07 Hours"
-            android:textColor="#F8F8F8"
+            android:textColor="#0E0E0E"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <!-- Circular Progress (Placeholder) -->
         <ProgressBar
             android:id="@+id/hoursProgress"
             style="@android:style/Widget.ProgressBar.Horizontal"
@@ -90,166 +105,273 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:progress="70"
-            android:progressTint="#E7EAEF" />
+            android:progressTint="#641C71" />
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewButtons"
+        android:id="@+id/attendanceSummaryCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="45dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="#F8F5F8"
+        app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
-        app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintTop_toBottomOf="@id/dateHoursSection"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintHorizontal_bias="0.5">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateHoursSection">
 
-        <!-- ConstraintLayout to center the GridLayout -->
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <GridLayout
+            android:id="@+id/attendanceGrid"
             android:layout_width="match_parent"
-            android:layout_height="456dp">
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:alignmentMode="alignMargins"
+            android:padding="12dp" >
 
-            <!-- Buttons Layout -->
-            <GridLayout
-                android:id="@+id/buttonsGrid"
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMonthDays"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:alignmentMode="alignMargins"
-                android:columnCount="2"
-                android:rowCount="3"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:backgroundTint="#641C71"
+                android:text="Month Days\n31"
+                android:textColor="#F1EAEA"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/month"
+                app:iconGravity="end"
+                app:iconSize="35dp"
+                android:gravity="left|center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp"
+                android:minHeight="100dp"
+                />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPresentDays"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:backgroundTint="#641C71"
+                android:text="Present Days\n2"
+                android:textColor="#F4F1F1"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/present"
+                app:iconGravity="end"
+                app:iconSize="38dp"
+                android:gravity="left|center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp"
+                android:minHeight="100dp"
+                />
 
-                <!-- Month Days Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMonthDays"
-                    android:layout_width="166dp"
-                    android:layout_height="100dp"
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:layout_gravity="fill"
-                    android:layout_margin="12dp"
-                    android:backgroundTint="#1B3B6F"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="MONTH DAYS\n31"
-                    android:textColor="#F1EAEA"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="15dp"
-                    app:layout_constraintWidth_percent="0.45" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAbsentDays"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:backgroundTint="#641C71"
+                android:text="Absent Days\n7"
+                android:textColor="#FBFAFA"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/absent"
+                app:iconGravity="end"
+                app:iconSize="45dp"
+                android:gravity="left|center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp"
+                android:minHeight="100dp"
+                />
 
-                <!-- Present Days Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnPresentDays"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_row="0"
-                    android:layout_column="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="12dp"
-                    android:backgroundTint="#1B3B6F"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="PRESENT DAYS\n2"
-                    android:textColor="#F4F1F1"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="15dp"
-                    app:layout_constraintWidth_percent="0.45" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBadRecords"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:backgroundTint="#641C71"
+                android:text="Bad Records\n1"
+                android:textColor="#F8F7F7"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/bad"
+                app:iconGravity="end"
+                app:iconSize="35dp"
+                android:gravity="left|center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp"
+                android:minHeight="100dp"
+                />
 
-                <!-- Absent Days Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAbsentDays"
-                    android:layout_width="150dp"
-                    android:layout_height="100dp"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:layout_gravity="fill"
-                    android:layout_margin="12dp"
-                    android:backgroundTint="#1B3B6F"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="ABSENT DAYS\n7"
-                    android:textColor="#FBFAFA"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="15dp"
-                    app:layout_constraintWidth_percent="0.45" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLeaves"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:backgroundTint="#641C71"
+                android:text="Leaves\n0"
+                android:textColor="#F8F7F7"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/leaves"
+                app:iconGravity="end"
+                app:iconSize="40dp"
+                android:gravity="left|center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp"
+                android:minHeight="100dp"
+                />
 
-
-                <!-- Leaves Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnBadRecords"
-                    android:layout_width="150dp"
-                    android:layout_height="100dp"
-                    android:layout_row="1"
-                    android:layout_column="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="12dp"
-                    android:backgroundTint="#1B3B6F"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="BAD RECORDS\n1"
-                    android:textColor="#F8F7F7"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="15dp"
-                    app:layout_constraintWidth_percent="0.45" />
-
-                <!-- Bad Records Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnLeaves"
-                    android:layout_width="150dp"
-                    android:layout_height="100dp"
-                    android:layout_row="2"
-                    android:layout_column="0"
-                    android:layout_gravity="fill"
-                    android:layout_margin="12dp"
-                    android:backgroundTint="#1B3B6F"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="LEAVES\n0"
-                    android:textColor="#F8F7F7"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="15dp"
-                    app:layout_constraintWidth_percent="0.45" />
-
-                <!-- Holidays Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnHolidays"
-                    android:layout_width="10dp"
-                    android:layout_height="100dp"
-                    android:layout_row="2"
-                    android:layout_column="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="12dp"
-                    android:backgroundTint="#1B3B6F"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="HOLIDAYS\n0"
-                    android:textColor="#F8F5F5"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="15dp"
-                    app:layout_constraintWidth_percent="0.45" />
-            </GridLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHolidays"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:backgroundTint="#641C71"
+                android:text="Holidays\n0"
+                android:textColor="#F8F5F5"
+                android:textSize="14sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/holiday"
+                app:iconGravity="end"
+                app:iconSize="45dp"
+                android:gravity="left|center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp"
+                android:minHeight="100dp"
+                />
+        </GridLayout>
     </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8F8"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/checkIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="Check In"
+                android:src="@drawable/checkin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check In"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:contentDescription="HR Assistant"
+                android:src="@drawable/hr" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HR"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="Home"
+                android:src="@drawable/home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/attendance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="Attendance"
+                android:src="@drawable/attendance" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attendance"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/requests"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="Requests"
+                android:src="@drawable/requests" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Requests"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
