@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+import android.widget.ImageView; // Corrected import
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,20 +29,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize UI elements
         dateText = findViewById(R.id.dateText);
         hoursText = findViewById(R.id.hoursText);
         handler = new Handler(Looper.getMainLooper());
 
         // Initialize bottom navigation LinearLayouts
-        checkInLayout = findViewById(R.id.checkIn); // Changed to checkIn
-        hrAssistantLayout = findViewById(R.id.hr);     // Changed to hr
-        homeLayout = findViewById(R.id.home);         // Changed to home
-        attendanceLayout = findViewById(R.id.attendance); // Changed to attendance
-        requestsLayout = findViewById(R.id.requests);   // Changed to requests
+        checkInLayout = findViewById(R.id.checkIn);
+        hrAssistantLayout = findViewById(R.id.hr);
+        homeLayout = findViewById(R.id.home);
+        attendanceLayout = findViewById(R.id.attendance);
+        requestsLayout = findViewById(R.id.requests);
 
-        updateDate();
-        startUpdatingHours();
-        setupNavigation();
+        updateDate();  //update the date.
+        startUpdatingHours(); //start updating hours.
+        setupNavigation();  //setup the nav bar.
     }
 
     private void updateDate() {
@@ -72,16 +75,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupNavigation() {
-
-        homeLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
+        // Home button functionality.
+        homeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
         });
+
+        // Requests button functionality
+        requestsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RequestsActivity.class); // Corrected class name
+                startActivity(intent);
+            }
+        });
+
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // You might want to stop the thread here if it's not handled elsewhere
+        // to prevent memory leaks.
     }
 }
+//Declare  the activities  HRAssistantActivity,AttendanceActivity,CheckInActivity,RequestsActivity

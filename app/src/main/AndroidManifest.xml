@@ -21,6 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".RequestsActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".LeaveRequests"
+            android:exported="true" />
     </application>
 
 </manifest>

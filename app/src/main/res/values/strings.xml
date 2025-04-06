@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WorkSync</string>
+    <string name="input">Please Write here</string>
+    <string name="attachment">No File Chosen</string>
 </resources>
