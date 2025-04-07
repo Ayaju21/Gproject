@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">WorkSync</string>
-    <string name="input">Please Write here</string>
-    <string name="attachment">No File Chosen</string>
+    <string-array name="leave_types">
+        <item>Choose Leave Type</item>
+        <item>Vacation</item>
+        <item>Sick Leave</item>
+        <item>Personal Leave</item>
+        <item>Other</item>
+    </string-array>
 </resources>

@@ -1,11 +1,11 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <solid android:color="#FFFFFF" /> <!-- الخلفية -->
+    <solid android:color="#FFFFFF" />
 
     <stroke
         android:width="1dp"
-        android:color="#A0A0A0" /> <!-- border سكني -->
+        android:color="#7E7979" />
 
-    <corners android:radius="6dp" /> <!-- زوايا ناعمة -->
+    <corners android:radius="6dp" />
 </shape>

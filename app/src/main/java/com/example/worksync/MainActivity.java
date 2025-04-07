@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
-import android.widget.ImageView; // Corrected import
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -18,10 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView dateText;
     private TextView hoursText;
     private Handler handler;
-    private LinearLayout checkInLayout;
-    private LinearLayout hrAssistantLayout;
     private LinearLayout homeLayout;
-    private LinearLayout attendanceLayout;
     private LinearLayout requestsLayout;
 
     @Override
@@ -33,17 +30,12 @@ public class MainActivity extends AppCompatActivity {
         dateText = findViewById(R.id.dateText);
         hoursText = findViewById(R.id.hoursText);
         handler = new Handler(Looper.getMainLooper());
-
-        // Initialize bottom navigation LinearLayouts
-        checkInLayout = findViewById(R.id.checkIn);
-        hrAssistantLayout = findViewById(R.id.hr);
         homeLayout = findViewById(R.id.home);
-        attendanceLayout = findViewById(R.id.attendance);
         requestsLayout = findViewById(R.id.requests);
 
-        updateDate();  //update the date.
-        startUpdatingHours(); //start updating hours.
-        setupNavigation();  //setup the nav bar.
+        updateDate();  // update the date.
+        startUpdatingHours(); // start updating hours.
+        setupNavigation();  // setup the nav bar.
     }
 
     private void updateDate() {
@@ -65,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                                 hoursText.setText(currentTime + " Hours");
                             }
                         });
-                        Thread.sleep(1000);
+                        Thread.sleep(1000); // Sleep for 1 second
                     }
                 } catch (InterruptedException e) {
                     // Handle thread interruption (e.g., log it)
@@ -79,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         homeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Reopen the same MainActivity.
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -88,19 +81,17 @@ public class MainActivity extends AppCompatActivity {
         requestsLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Navigate to the RequestsActivity.
                 Intent intent = new Intent(MainActivity.this, RequestsActivity.class); // Corrected class name
                 startActivity(intent);
             }
         });
-
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // You might want to stop the thread here if it's not handled elsewhere
-        // to prevent memory leaks.
+        // You might want to stop the thread here if it's not handled elsewhere to prevent memory leaks.
     }
 }
-//Declare  the activities  HRAssistantActivity,AttendanceActivity,CheckInActivity,RequestsActivity

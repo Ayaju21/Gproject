@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#EDE7F6">
 
     <LinearLayout
         android:id="@+id/userAccountSection"
@@ -68,8 +68,8 @@
 
     <LinearLayout
         android:id="@+id/dateHoursSection"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="407dp"
+        android:layout_height="134dp"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -123,11 +123,12 @@
         <GridLayout
             android:id="@+id/attendanceGrid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:rowCount="3"
+            android:layout_height="380dp"
             android:alignmentMode="alignMargins"
-            android:padding="12dp" >
+            android:background="#EDE7F6"
+            android:columnCount="2"
+            android:padding="12dp"
+            android:rowCount="3">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -136,52 +137,35 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="3dp">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMonthDays"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:backgroundTint="#92278F"
 
-                    android:text="MONTH DAYS\n31"
-                    android:textColor="#F1EAEA"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="15dp"
-                    app:icon="@drawable/month"
-                    app:iconGravity="end"
-                    app:iconSize="24dp"
-                    android:gravity="left|center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp" />
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="3dp">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnPresentDays"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#641C71"
-                    android:text="Present Days\n2"
-                    android:textColor="#F4F1F1"
-                    android:textSize="14sp"
-                    app:cornerRadius="15dp"
-                    app:icon="@drawable/present"
-                    app:iconGravity="end"
-                    app:iconSize="38dp"
                     android:gravity="left|center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp"
                     android:minHeight="100dp"
-                    />
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/txtMonthDays"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Month Days\n31"
+                        android:textColor="#5C2E91"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/month"
+                        app:tint="#5C2E91" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -192,23 +176,33 @@
                 android:layout_margin="8dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="3dp">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAbsentDays"
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#92278F"
-                    android:text="Absent Days\n7"
-                    android:textColor="#FBFAFA"
-                    android:textSize="14sp"
-                    app:cornerRadius="15dp"
-                    app:icon="@drawable/absent"
-                    app:iconGravity="end"
-                    app:iconSize="45dp"
                     android:gravity="left|center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp"
                     android:minHeight="100dp"
-                    />
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/txtPresentDays"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Present Days\n2"
+                        android:textColor="#5C2E91"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/present"
+                        app:tint="#5C2E91" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -219,23 +213,33 @@
                 android:layout_margin="8dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="3dp">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnBadRecords"
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#641C71"
-                    android:text="Bad Records\n1"
-                    android:textColor="#F8F7F7"
-                    android:textSize="14sp"
-                    app:cornerRadius="15dp"
-                    app:icon="@drawable/bad"
-                    app:iconGravity="end"
-                    app:iconSize="35dp"
                     android:gravity="left|center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp"
                     android:minHeight="100dp"
-                    />
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/txtAbsentDays"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Absent Days\n7"
+                        android:textColor="#5C2E91"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/absent"
+                        app:tint="#5C2E91" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -246,23 +250,33 @@
                 android:layout_margin="8dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="3dp">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnLeaves"
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#5C2E91"
-                    android:text="Leaves\n0"
-                    android:textColor="#F8F7F7"
-                    android:textSize="14sp"
-                    app:cornerRadius="15dp"
-                    app:icon="@drawable/leaves"
-                    app:iconGravity="end"
-                    app:iconSize="40dp"
                     android:gravity="left|center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp"
                     android:minHeight="100dp"
-                    />
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/txtBadRecords"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Bad Records\n1"
+                        android:textColor="#5C2E91"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/bad"
+                        app:tint="#5C2E91" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -273,23 +287,70 @@
                 android:layout_margin="8dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="3dp">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnHolidays"
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#641C71"
-                    android:text="Holidays\n0"
-                    android:textColor="#F8F5F5"
-                    android:textSize="14sp"
-                    app:cornerRadius="15dp"
-                    app:icon="@drawable/holiday"
-                    app:iconGravity="end"
-                    app:iconSize="45dp"
                     android:gravity="left|center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp"
                     android:minHeight="100dp"
-                    />
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/txtLeaves"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Leaves\n0"
+                        android:textColor="#5C2E91"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/leaves"
+                        app:tint="#5C2E91" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:minHeight="100dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/txtHolidays"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Holidays\n0"
+                        android:textColor="#5C2E91"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/holiday"
+                        app:tint="#5C2E91" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
         </GridLayout>
     </androidx.cardview.widget.CardView>
