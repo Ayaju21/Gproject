@@ -49,7 +49,7 @@ public class LeaveRequests extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.leave_requests);
-
+        setBackButtonListener();
         leaveTypeSpinner = findViewById(R.id.leaveTypeSpinner);
         reasonEditText = findViewById(R.id.reasonTextView);
         selectDateButton = findViewById(R.id.selectDateButton);
@@ -65,6 +65,11 @@ public class LeaveRequests extends AppCompatActivity {
         selectDateButton.setOnClickListener(v -> showDateSelectionDialog());
         chooseFileButton.setOnClickListener(v -> openFilePicker());
         submitButton.setOnClickListener(v -> validateForm());
+
+    }
+    private void setBackButtonListener() {
+        ImageView backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> onBackPressed()); // This will call the default back button functionality
     }
 
     private void showDateSelectionDialog() {
