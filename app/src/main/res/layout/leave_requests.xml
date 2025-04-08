@@ -96,10 +96,10 @@
         <Button
             android:id="@+id/selectDateButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
             android:backgroundTint="#5C2E91"
             android:text="Select Date" />
-
 
     </LinearLayout>
 
