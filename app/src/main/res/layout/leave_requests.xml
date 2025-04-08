@@ -94,13 +94,11 @@
         app:layout_constraintTop_toBottomOf="@id/selectDateLabel">
 
         <Button
-            android:id="@+id/selectDateButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="#5C2E91"
-            android:text="Select Date" />
-
-
+            android:layout_height="wrap_content"
+            android:background="#5C2E91"
+            android:text="Select Date"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 
     <!-- Reason for Leave -->
@@ -180,16 +178,15 @@
     <!-- Submit Button -->
     <Button
         android:id="@+id/submitButton"
-        android:layout_width="136dp"
-        android:layout_height="57dp"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="#5C2E91"
         android:text="Submit"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/attachmentLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
