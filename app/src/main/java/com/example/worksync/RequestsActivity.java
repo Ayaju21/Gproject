@@ -50,7 +50,7 @@ public class RequestsActivity extends AppCompatActivity {
     private void initializeViews() {
         backButton = findViewById(R.id.backButton);
         LinearLayout checkInLayout = findViewById(R.id.checkInLayout);
-        LinearLayout hrLayout = findViewById(R.id.hrLayout);
+        LinearLayout hrLayout = findViewById(R.id.salaryLayout);
         LinearLayout homeLayout = findViewById(R.id.homeLayout);
         LinearLayout attendanceLayout = findViewById(R.id.attendanceLayout);
         LinearLayout requestsLayout = findViewById(R.id.requestsLayout);

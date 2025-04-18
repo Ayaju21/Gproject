@@ -208,24 +208,31 @@ public class LeaveRequests extends AppCompatActivity {
         }
         return result;
     }
-
     private void validateForm() {
         String leaveType = leaveTypeSpinner.getSelectedItem().toString();
         String reason = reasonEditText.getText().toString().trim();
 
+        boolean hasError = false; // Flag to track if any error occurred
+
         if (leaveTypeSpinner.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Please select leave type", Toast.LENGTH_SHORT).show();
-            return;
+            hasError = true;
         }
 
         if (leavePeriods.isEmpty()) {
             Toast.makeText(this, "Please select at least one start and end date", Toast.LENGTH_SHORT).show();
-            return;
+            hasError = true;
         }
 
         if (reason.isEmpty()) {
-            Toast.makeText(this, "Please enter a reason", Toast.LENGTH_SHORT).show();
-            return;
+            reasonEditText.setError("Please enter a reason"); // Set error on reason EditText
+            hasError = true;
+        } else {
+            reasonEditText.setError(null); // Clear error if it was previously set and is now valid
+        }
+
+        if (hasError) {
+            return; // Stop submission if there are any errors
         }
 
         Toast.makeText(this, "Leave request submitted successfully", Toast.LENGTH_LONG).show();
