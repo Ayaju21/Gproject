@@ -165,7 +165,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/hrLayout"
+            android:id="@+id/salaryLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -178,15 +178,15 @@
                 android:id="@+id/hrIcon"
                 android:layout_width="33dp"
                 android:layout_height="33dp"
-                android:contentDescription="HR Assistant"
-                android:src="@drawable/hr"
+                android:contentDescription="Salary"
+                android:src="@drawable/salary"
                 app:tint="#000000" />
 
             <TextView
                 android:id="@+id/hrText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HR"
+                android:text="Salary"
                 android:textSize="12sp"
                 android:textColor="#000000" />
         </LinearLayout>

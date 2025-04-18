@@ -389,7 +389,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/hr"
+            android:id="@+id/salary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -399,13 +399,13 @@
             <ImageView
                 android:layout_width="33dp"
                 android:layout_height="33dp"
-                android:contentDescription="HR Assistant"
-                android:src="@drawable/hr" />
+                android:contentDescription="Salary"
+                android:src="@drawable/salary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HR"
+                android:text="Salary"
                 android:textSize="12sp" />
         </LinearLayout>
 
