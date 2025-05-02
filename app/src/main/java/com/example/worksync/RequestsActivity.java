@@ -36,12 +36,12 @@ public class RequestsActivity extends AppCompatActivity {
         overtimeRequestCardView = findViewById(R.id.overtimeRequestCardView);
 
         leaveRequestCardView.setOnClickListener(v -> {
-            Intent intent = new Intent(RequestsActivity.this, LeaveRequests.class);
+            Intent intent = new Intent(RequestsActivity.this, ListLeave.class);
             startActivity(intent);
         });
 
         overtimeRequestCardView.setOnClickListener(v -> {
-            Intent intent = new Intent(RequestsActivity.this, OvertimeRequests.class);
+            Intent intent = new Intent(RequestsActivity.this, ListOvertime.class);
             startActivity(intent);
         });
 

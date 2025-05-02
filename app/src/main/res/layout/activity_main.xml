@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDE7F6">
+    android:background="#F3E5F5">
 
+    <!-- User Account Section -->
     <LinearLayout
         android:id="@+id/userAccountSection"
         android:layout_width="match_parent"
@@ -37,10 +38,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Name"
-                android:textColor="#100F0F"
+                android:textColor="#5C2E91"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -66,6 +66,7 @@
         </LinearLayout>
     </LinearLayout>
 
+    <!-- Date and Hours Section -->
     <LinearLayout
         android:id="@+id/dateHoursSection"
         android:layout_width="407dp"
@@ -84,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="May, 2024"
-            android:textColor="#100F0F"
+            android:textColor="#5C2E91"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -94,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="21:10:07 Hours"
-            android:textColor="#0E0E0E"
+            android:textColor="#5C2E91"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -105,15 +106,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:progress="70"
-            android:progressTint="#92278F" />
+            android:progressTint="#5C2E91" />
     </LinearLayout>
 
+    <!-- Attendance Summary Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/attendanceSummaryCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardBackgroundColor="#F8F5F8"
+        app:cardBackgroundColor="#EDE7F6"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,11 +127,12 @@
             android:layout_width="match_parent"
             android:layout_height="380dp"
             android:alignmentMode="alignMargins"
-            android:background="#EDE7F6"
+            android:background="#F3E5F5"
             android:columnCount="2"
             android:padding="12dp"
             android:rowCount="3">
 
+            <!-- Attendance Card View for Month Days -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -168,6 +171,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Attendance Card View for Present Days -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -205,6 +209,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Attendance Card View for Absent Days -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -242,6 +247,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Attendance Card View for Bad Records -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -279,6 +285,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Attendance Card View for Leaves -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -316,6 +323,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Attendance Card View for Holidays -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -355,11 +363,12 @@
         </GridLayout>
     </androidx.cardview.widget.CardView>
 
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F8F8F8"
+        android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="14dp"

@@ -33,6 +33,22 @@
             android:name=".OvertimeRequests"
             android:exported="true" />
 
+        <activity
+            android:name=".ListLeave"
+            android:exported="true" />
+        <activity
+            android:name=".ListOvertime"
+            android:exported="true" />
+        <activity
+            android:name=".LeaveOverview"
+            android:exported="true" />
+        <activity
+            android:name=".ListLeaveAdapter"
+            android:exported="true" />
+
+
+
+
     </application>
 
 </manifest>

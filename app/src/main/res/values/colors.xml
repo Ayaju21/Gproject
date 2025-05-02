@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="purple_200">#5C2E91</color>
-    <color name="teal_200">#CCCCCC</color>
-    <color name="purple_color">#5C2E91</color>
-
+        <color name="primaryColor">#6A11CB</color> <!-- A soft purple-blue -->
+        <color name="primaryDarkColor">#2575FC</color> <!-- A lighter blue -->
+        <color name="accentColor">#D3CCE3</color> <!-- A soft light pink -->
+        <color name="backgroundGradientStart">#6A11CB</color>
+        <color name="backgroundGradientEnd">#2575FC</color>
+        <color name="white">#FFFFFF</color>
+        <color name="black">#000000</color>
+        <color name="textColor">#333333</color> <!-- Dark gray text color -->
 </resources>
