@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#EDE7F6">
+    android:background="#EDE7F6"
+    android:padding="16dp">
 
+    <!-- Header Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -17,305 +17,272 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp">
 
+        <!-- Back Button -->
         <ImageView
             android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:contentDescription="Back to Dashboard"
-            android:focusable="true"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
             android:padding="8dp"
             android:src="?attr/actionModeCloseDrawable"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="#000000" />
 
+        <!-- Title -->
         <TextView
             android:id="@+id/titleTextView"
-            android:layout_width="307dp"
-            android:layout_height="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Leave Overview"
-            android:textColor="#333333"
-            android:textSize="24sp"
+            android:text="📋 Leave Overview"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="#000000"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.321"
             app:layout_constraintStart_toEndOf="@+id/backButton"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.517" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Content Section with ScrollView -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:padding="12dp">
 
+        <!-- Content Cards -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Type of Leave Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Type Of Leave"
-                        android:textSize="12sp"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:id="@+id/typeOfVacationTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Marriage Vacation"
-                        android:textSize="14sp"
-                        android:textColor="#757575"
-                        android:layout_marginTop="3dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Request Code"
-                        android:textSize="12sp"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:id="@+id/requestCodeTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1235"
-                        android:textSize="14sp"
-                        android:textColor="#757575"
-                        android:layout_marginTop="3dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Request Date"
-                        android:textSize="12sp"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:id="@+id/requestDateTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="20-10-2023"
-                        android:textSize="14sp"
-                        android:textColor="#757575"
-                        android:layout_marginTop="3dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
+                    android:padding="16dp"
                     android:gravity="center_vertical">
+
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Status"
-                        android:textSize="12sp"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:id="@+id/statusTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pending"
+                        android:text="📝 Type of Leave"
                         android:textSize="14sp"
-                        android:textColor="#2E7D32"
-                        android:paddingVertical="3dp"
-                        android:paddingHorizontal="6dp" />
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/leaveTypeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Marriage Vacation"
+                    android:textSize="16sp"
+                    android:textColor="#757575"
+                    android:layout_marginTop="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Start Date Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#FFFFFF">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="16dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Number Of Days"
-                        android:textSize="12sp"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:id="@+id/numberOfDaysTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
+                        android:text="📅 Start Date"
                         android:textSize="14sp"
-                        android:textColor="#757575"
-                        android:layout_marginTop="3dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Start Date"
-                        android:textSize="12sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/startDateTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="20-10-2023"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textColor="#757575"
-                        android:layout_marginTop="3dp" />
+                        android:layout_marginTop="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- End Date Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#FFFFFF">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="16dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="End Date"
-                        android:textSize="12sp"
+                        android:text="📅 End Date"
+                        android:textSize="14sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/endDateTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="22-10-2023"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textColor="#757575"
-                        android:layout_marginTop="3dp" />
+                        android:layout_marginTop="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Number of Days Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="16dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="The Reason"
-                        android:textSize="12sp"
+                        android:text="🗓 Number of Days"
+                        android:textSize="14sp"
                         android:textColor="#000000" />
                     <TextView
-                        android:id="@+id/reasonOfVacationTextView"
+                        android:id="@+id/numberOfDaysTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 Days"
+                        android:textSize="16sp"
+                        android:textColor="#757575"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Status Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⏳Status"
+                        android:textSize="14sp"
+                        android:textColor="#000000" />
+                    <TextView
+                        android:id="@+id/statusTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending"
+                        android:textSize="16sp"
+                        android:textColor="#2E7D32"
+                        android:paddingVertical="4dp"
+                        android:paddingHorizontal="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- The Reason Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📝 Reason"
+                        android:textSize="14sp"
+                        android:textColor="#000000" />
+                    <TextView
+                        android:id="@+id/reasonTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Mental health break"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textColor="#757575"
-                        android:layout_marginTop="3dp" />
+                        android:layout_marginTop="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Attachment Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                android:layout_marginBottom="6dp">
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="#FFFFFF">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="16dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Attachment"
-                        android:textSize="12sp"
+                        android:text="📎 Attachment"
+                        android:textSize="14sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/attachmentTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="No file attached"
-                        android:textSize="14sp"
+                        android:text="No attachment"
+                        android:textSize="16sp"
                         android:textColor="#757575"
-                        android:layout_marginTop="3dp" />
+                        android:layout_marginTop="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

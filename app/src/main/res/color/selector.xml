@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- اللون عند اختيار العنصر -->
+    <item android:color="#5C2E91" android:state_selected="true" />
+    <!-- اللون عند عدم اختيار العنصر -->
+    <item android:color="#1F1F1F" />
+
+</selector>

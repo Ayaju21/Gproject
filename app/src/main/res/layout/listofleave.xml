@@ -6,72 +6,72 @@
     android:layout_height="match_parent"
     android:background="#EDE7F6">
 
-    <ImageView
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:clickable="true"
-        android:contentDescription="Back to Dashboard"
-        android:focusable="true"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:padding="8dp"
-        android:src="?attr/actionModeCloseDrawable"
-        app:layout_constraintBottom_toBottomOf="@+id/titleTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/titleTextView"
-        app:layout_constraintVertical_bias="0.0"
-        app:tint="#000000" />
-
+    <!-- Title Bar -->
     <TextView
         android:id="@+id/titleTextView"
+        android:text="My Leave Requests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="My Leave Requests"
-        android:textColor="#000000"
-        android:textSize="23sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#000000"
+        android:fontFamily="@font/poppins_medium"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_horizontal" />
 
+    <!-- Back Button -->
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:src="?attr/actionModeCloseDrawable"
+        android:contentDescription="Back"
+        app:tint="#000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Form Section -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:id="@+id/middleSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+            android:padding="16dp">
 
+            <!-- Accepted Leaves Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/acceptedLeavesCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@android:color/white"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="77dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingVertical="16dp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp">
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/acceptedLeavesLabel"
@@ -80,14 +80,15 @@
                         android:layout_weight="1"
                         android:text="Accepted Leaves"
                         android:textColor="#757575"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/acceptedLeavesCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="25"
-                        android:textColor="#9C27B0"
+                        android:textColor="#5C2E91"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -95,52 +96,61 @@
                         android:id="@+id/acceptedLeavesTotalLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginStart="8dp"
                         android:text="of 30 Per Year"
                         android:textColor="#757575"
                         android:textSize="12sp" />
 
                     <ImageView
-                        android:layout_width="24dp"
+                        android:id="@+id/checkIcon"
+                        android:layout_width="32dp"
                         android:layout_height="24dp"
-                        android:layout_marginStart="16dp"
-                        android:contentDescription="Accepted Icon"
-                        app:tint="#9C27B0" />
+                        android:src="@drawable/present"
+                        app:tint="#5C2E91" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- New Leave Request Button -->
+
+            <!-- Leave Requests List Title -->
             <Button
                 android:id="@+id/newLeaveRequestButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="380dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="#5C2E91"
-                android:padding="10dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#4A148C"
+                android:gravity="center"
                 android:text="+ New Leave Request"
-                android:textColor="@android:color/white"
+                android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center_vertical"
-                android:minHeight="60dp"
                 android:orientation="horizontal"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:gravity="center_vertical"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:text="List of My Leaves"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="List Of My Leaves"
-                    android:textColor="#333333"
-                    android:textSize="20sp"
-                    android:textStyle="bold|italic" />
+                    android:layout_marginStart="8dp" />
 
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/filter"
+                    android:contentDescription="Leave Icon"
+                    app:tint="#5C2E91" />
             </LinearLayout>
 
+            <!-- RecyclerView for leave requests -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/leaveRequestsRecyclerView"
                 android:layout_width="match_parent"
@@ -156,148 +166,158 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F8F8F8"
+        android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="14dp"
+        android:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Check In -->
         <LinearLayout
             android:id="@+id/checkInLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:orientation="vertical"
+            android:gravity="center"
             android:clickable="true"
             android:focusable="true">
-
             <ImageView
                 android:id="@+id/checkInIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="Check In"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/checkin"
-                app:tint="#000000" />
-
+                android:contentDescription="Check In"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
-                android:id="@+id/checkInText"
+                android:id="@+id/checkInLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Check In"
-                android:textSize="12sp"
-                android:textColor="#000000" />
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
 
+        <!-- Salary -->
         <LinearLayout
             android:id="@+id/salaryLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:orientation="vertical"
+            android:gravity="center"
             android:clickable="true"
             android:focusable="true">
-
             <ImageView
-                android:id="@+id/hrIcon"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:contentDescription="Salary"
+                android:id="@+id/salaryIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/salary"
-                app:tint="#000000" />
-
+                android:contentDescription="Salary"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
-                android:id="@+id/hrText"
+                android:id="@+id/salaryLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Salary"
-                android:textSize="12sp"
-                android:textColor="#000000" />
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
 
+        <!-- Home -->
         <LinearLayout
             android:id="@+id/homeLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:orientation="vertical"
+            android:gravity="center"
             android:clickable="true"
             android:focusable="true">
-
             <ImageView
                 android:id="@+id/homeIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="Home"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/home"
-                app:tint="#000000" />
-
+                android:contentDescription="Home"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
-                android:id="@+id/homeText"
+                android:id="@+id/homeLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textSize="12sp"
-                android:textColor="#000000" />
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
 
+        <!-- Attendance -->
         <LinearLayout
             android:id="@+id/attendanceLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:orientation="vertical"
+            android:gravity="center"
             android:clickable="true"
             android:focusable="true">
-
             <ImageView
                 android:id="@+id/attendanceIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="Attendance"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/attendance"
-                app:tint="#000000" />
-
+                android:contentDescription="Attendance"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
-                android:id="@+id/attendanceText"
+                android:id="@+id/attendanceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Attendance"
                 android:textSize="12sp"
-                android:textColor="#000000" />
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
 
+        <!-- Requests -->
         <LinearLayout
             android:id="@+id/requestsLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:orientation="vertical"
+            android:gravity="center"
             android:clickable="true"
             android:focusable="true">
-
             <ImageView
                 android:id="@+id/requestsIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="Requests"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/requests"
-                app:tint="#000000" />
-
+                android:contentDescription="Requests"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
-                android:id="@+id/requestsText"
+                android:id="@+id/requestsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Requests"
-                android:textSize="12sp"
-                android:textColor="#000000" />
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

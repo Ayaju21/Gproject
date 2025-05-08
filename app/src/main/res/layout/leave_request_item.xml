@@ -1,37 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="4dp"
-    app:cardBackgroundColor="@android:color/white">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@android:color/white"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/leaveTypeTextView"
-            android:layout_width="wrap_content"
+        <!-- Left Side (Leave Type and Dates) -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Leave Type"
-            android:textColor="#5C2E91"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_weight="2"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/leaveDateTextView"
-            android:layout_width="wrap_content"
+            <!-- Leave Type -->
+            <TextView
+                android:id="@+id/leaveTypeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vacation Leave"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <!-- Dates -->
+            <TextView
+                android:id="@+id/leaveDatesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 Aug - 7 Sep"
+                android:textColor="#757575"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Right Side (Leave Status) -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="From: 2024-01-01 To: 2024-01-05"
-            android:textColor="#777777"
-            android:textSize="14sp" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <!-- Status -->
+            <TextView
+                android:id="@+id/leaveStatusTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pending"
+                android:textColor="#4CAF50"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_medium"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         dateText = findViewById(R.id.dateText);
         hoursText = findViewById(R.id.hoursText);
         handler = new Handler(Looper.getMainLooper());
-        homeLayout = findViewById(R.id.home);
-        requestsLayout = findViewById(R.id.requests);
+        homeLayout = findViewById(R.id.homeLayout);
+        requestsLayout = findViewById(R.id.requestsLayout);
 
         updateDate();  // update the date.
         startUpdatingHours(); // start updating hours.

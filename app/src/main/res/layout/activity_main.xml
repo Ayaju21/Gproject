@@ -8,31 +8,38 @@
     android:background="#F3E5F5">
 
     <!-- User Account Section -->
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/userAccountSection"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/userProfileImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/user"
-            android:contentDescription="User Profile Image"
-            android:scaleType="centerCrop" />
-
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical">
 
+            <!-- Profile Image -->
+            <ImageView
+                android:id="@+id/userProfileImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/user"
+                android:contentDescription="User Profile Image"
+                android:scaleType="centerCrop" />
+
+            <!-- User Name -->
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
@@ -40,45 +47,47 @@
                 android:text="User Name"
                 android:textColor="#5C2E91"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_weight="1" />
+
+            <!-- Location and Notification Icons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/locationIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/location"
+                    android:contentDescription="Location Icon"
+                    android:layout_marginEnd="12dp"/>
+
+                <ImageView
+                    android:id="@+id/notificationBell"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/bell"
+                    android:contentDescription="Notification Bell"/>
+            </LinearLayout>
+
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical">
-
-            <ImageView
-                android:id="@+id/locationIcon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/location"
-                android:contentDescription="Location Icon"
-                android:layout_marginEnd="8dp"/>
-
-            <ImageView
-                android:id="@+id/notificationBell"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/bell"
-                android:contentDescription="Notification Bell"/>
-        </LinearLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <!-- Date and Hours Section -->
     <LinearLayout
         android:id="@+id/dateHoursSection"
-        android:layout_width="407dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/userAccountSection"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userAccountSection">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/dateText"
@@ -86,7 +95,7 @@
             android:layout_height="wrap_content"
             android:text="May, 2024"
             android:textColor="#5C2E91"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -96,13 +105,13 @@
             android:layout_marginTop="8dp"
             android:text="21:10:07 Hours"
             android:textColor="#5C2E91"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
         <ProgressBar
             android:id="@+id/hoursProgress"
             style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:progress="70"
@@ -117,22 +126,21 @@
         android:layout_margin="16dp"
         app:cardBackgroundColor="#EDE7F6"
         app:cardCornerRadius="20dp"
-        app:cardElevation="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/dateHoursSection"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateHoursSection">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <GridLayout
             android:id="@+id/attendanceGrid"
             android:layout_width="match_parent"
-            android:layout_height="380dp"
-            android:alignmentMode="alignMargins"
-            android:background="#F3E5F5"
+            android:layout_height="wrap_content"
             android:columnCount="2"
             android:padding="12dp"
+            android:alignmentMode="alignMargins"
             android:rowCount="3">
 
-            <!-- Attendance Card View for Month Days -->
+            <!-- Month Days -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -142,15 +150,12 @@
                 app:cardCornerRadius="15dp"
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="3dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:minHeight="100dp"
+                    android:gravity="start|center_vertical"
                     android:orientation="horizontal"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp">
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/txtMonthDays"
@@ -164,14 +169,13 @@
 
                     <ImageView
                         android:layout_width="40dp"
-                        android:layout_height="70dp"
-                        android:layout_marginStart="8dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/month"
                         app:tint="#5C2E91" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Attendance Card View for Present Days -->
+            <!-- Present Days -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -179,16 +183,14 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="3dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:minHeight="100dp"
+                    android:gravity="start|center_vertical"
                     android:orientation="horizontal"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp">
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/txtPresentDays"
@@ -202,14 +204,13 @@
 
                     <ImageView
                         android:layout_width="40dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="8dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/present"
                         app:tint="#5C2E91" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Attendance Card View for Absent Days -->
+            <!-- Absent Days -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -217,16 +218,14 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardElevation="3dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:minHeight="100dp"
+                    android:gravity="start|center_vertical"
                     android:orientation="horizontal"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp">
+                    android:padding="16dp">
 
                     <TextView
                         android:id="@+id/txtAbsentDays"
@@ -239,9 +238,8 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="70dp"
-                        android:layout_marginStart="8dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/absent"
                         app:tint="#5C2E91" />
                 </LinearLayout>
@@ -333,37 +331,36 @@
                 app:cardCornerRadius="15dp"
                 app:cardElevation="3dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:minHeight="100dp"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp">
+
+                <TextView
+                    android:id="@+id/txtHolidays"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:minHeight="100dp"
-                    android:orientation="horizontal"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="10dp">
+                    android:layout_weight="1"
+                    android:text="Holidays\n0"
+                    android:textColor="#5C2E91"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/txtHolidays"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Holidays\n0"
-                        android:textColor="#5C2E91"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="70dp"
-                        android:layout_marginStart="8dp"
-                        android:src="@drawable/holiday"
-                        app:tint="#5C2E91" />
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/holiday"
+                    app:tint="#5C2E91" />
+            </LinearLayout>
             </androidx.cardview.widget.CardView>
         </GridLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
@@ -372,113 +369,156 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="14dp"
+        android:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Check In -->
         <LinearLayout
-            android:id="@+id/checkIn"
+            android:id="@+id/checkInLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/checkInIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/checkin"
                 android:contentDescription="Check In"
-                android:src="@drawable/checkin" />
-
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
+                android:id="@+id/checkInLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Check In"
-                android:textSize="12sp"/>
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
 
+        <!-- Salary -->
         <LinearLayout
-            android:id="@+id/salary"
+            android:id="@+id/salaryLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
-                android:layout_width="33dp"
-                android:layout_height="33dp"
+                android:id="@+id/salaryIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/salary"
                 android:contentDescription="Salary"
-                android:src="@drawable/salary" />
-
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
+                android:id="@+id/salaryLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Salary"
-                android:textSize="12sp" />
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
 
+        <!-- Home -->
         <LinearLayout
-            android:id="@+id/home"
+            android:id="@+id/homeLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/homeIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/home"
                 android:contentDescription="Home"
-                android:src="@drawable/home" />
-
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
+                android:id="@+id/homeLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textSize="12sp" />
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
 
+        <!-- Attendance -->
         <LinearLayout
-            android:id="@+id/attendance"
+            android:id="@+id/attendanceLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/attendanceIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/attendance"
                 android:contentDescription="Attendance"
-                android:src="@drawable/attendance" />
-
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
+                android:id="@+id/attendanceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Attendance"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
 
+        <!-- Requests -->
         <LinearLayout
-            android:id="@+id/requests"
+            android:id="@+id/requestsLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:clickable="true"
+            android:focusable="true">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/requestsIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/requests"
                 android:contentDescription="Requests"
-                android:src="@drawable/requests" />
-
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/selector" />
             <TextView
+                android:id="@+id/requestsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Requests"
-                android:textSize="12sp" />
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/selector"/>
         </LinearLayout>
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

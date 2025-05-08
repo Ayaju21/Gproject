@@ -1,117 +1,103 @@
 package com.example.worksync;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 public class RequestsActivity extends AppCompatActivity {
 
-    private static final int PURPLE_COLOR = Color.parseColor("#5C2E91");
-    private static final int DEFAULT_COLOR = Color.BLACK;
-
+    private LinearLayout checkInLayout, salaryLayout, homeLayout, attendanceLayout, requestsLayout;
+    private CardView leaveRequestCardView, overtimeRequestCardView;
     private ImageView backButton;
-    private ImageView[] icons;
-    private TextView[] texts;
-    private LinearLayout[] bottomNavigationLayouts;
-    private CardView leaveRequestCardView;
-    private CardView overtimeRequestCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requests);
+
+        // تفعيل زر الرجوع في ActionBar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);  // إظهار زر الرجوع في ActionBar
+            getSupportActionBar().setDisplayShowHomeEnabled(true);  // التأكد من إظهار زر الرجوع
+        }
+
+        // ربط العناصر في XML بالكود
         initializeViews();
-        setBottomNavigationListeners();
         setBackButtonListener();
+        setBottomNavigationListeners();
 
-        leaveRequestCardView = findViewById(R.id.leaveRequestCardView);
-        overtimeRequestCardView = findViewById(R.id.overtimeRequestCardView);
-
-        leaveRequestCardView.setOnClickListener(v -> {
-            Intent intent = new Intent(RequestsActivity.this, ListLeave.class);
-            startActivity(intent);
-        });
-
-        overtimeRequestCardView.setOnClickListener(v -> {
-            Intent intent = new Intent(RequestsActivity.this, ListOvertime.class);
-            startActivity(intent);
-        });
-
+        // تفعيل النقر على CardView للانتقال إلى الأنشطة المناسبة
+        leaveRequestCardView.setOnClickListener(v -> navigateToActivity(LeaveRequest.class));
+        overtimeRequestCardView.setOnClickListener(v -> navigateToActivity(OvertimeRequests.class));
     }
 
     private void initializeViews() {
+        // ربط العناصر في XML بالكود
         backButton = findViewById(R.id.backButton);
-        LinearLayout checkInLayout = findViewById(R.id.checkInLayout);
-        LinearLayout hrLayout = findViewById(R.id.salaryLayout);
-        LinearLayout homeLayout = findViewById(R.id.homeLayout);
-        LinearLayout attendanceLayout = findViewById(R.id.attendanceLayout);
-        LinearLayout requestsLayout = findViewById(R.id.requestsLayout);
-        bottomNavigationLayouts = new LinearLayout[]{checkInLayout, hrLayout, homeLayout, attendanceLayout, requestsLayout};
-
-        icons = new ImageView[] {
-                findViewById(R.id.checkInIcon),
-                findViewById(R.id.hrIcon),
-                findViewById(R.id.homeIcon),
-                findViewById(R.id.attendanceIcon),
-                findViewById(R.id.requestsIcon)
-        };
-
-        texts = new TextView[] {
-                findViewById(R.id.checkInText),
-                findViewById(R.id.hrText),
-                findViewById(R.id.homeText),
-                findViewById(R.id.attendanceText),
-                findViewById(R.id.requestsText)
-        };
-    }
-
-    private void setBottomNavigationListeners() {
-        for (LinearLayout layout : bottomNavigationLayouts) {
-            layout.setOnClickListener(this::onBottomNavigationItemClick);
-        }
+        checkInLayout = findViewById(R.id.checkInLayout);
+        salaryLayout = findViewById(R.id.salaryLayout);
+        homeLayout = findViewById(R.id.homeLayout);
+        attendanceLayout = findViewById(R.id.attendanceLayout);
+        requestsLayout = findViewById(R.id.requestsLayout);
+        leaveRequestCardView = findViewById(R.id.leaveRequestCardView);
+        overtimeRequestCardView = findViewById(R.id.overtimeRequestCardView);
     }
 
     private void setBackButtonListener() {
-        backButton.setOnClickListener(v -> {
-            Intent intent = new Intent(RequestsActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        });
+        // تفعيل زر الرجوع عند الضغط عليه
+        backButton.setOnClickListener(v -> onBackPressed());  // العودة إلى النشاط السابق
     }
 
-    private void onBottomNavigationItemClick(View v) {
-        setIconAndTextColor(v.getId(), PURPLE_COLOR);
-        resetOtherItems(v.getId());
+    private void setBottomNavigationListeners() {
+        // إنشاء مصفوفة تحتوي على العناصر التي نريد إضافة الـ OnClickListener لها
+        LinearLayout[] bottomNavItems = {homeLayout, requestsLayout, checkInLayout, salaryLayout, attendanceLayout};
 
-        if (v.getId() == R.id.homeLayout) {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+        // إضافة Listener لكل عنصر في المصفوفة
+        for (LinearLayout item : bottomNavItems) {
+            item.setOnClickListener(v -> {
+                navigateToActivity(getActivityClass(item));  // التنقل للنشاط المناسب
+                updateSelection(item);  // تحديث حالة التحديد
+            });
         }
     }
 
-    private void setIconAndTextColor(int layoutId, int color) {
-        for (int i = 0; i < bottomNavigationLayouts.length; i++) {
-            if (layoutId == bottomNavigationLayouts[i].getId()) {
-                icons[i].setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN));
-                texts[i].setTextColor(color);
-            }
-        }
+    private void navigateToActivity(Class<?> activityClass) {
+        // التبديل إلى الأنشطة المناسبة عند النقر على العناصر
+        Intent intent = new Intent(RequestsActivity.this, activityClass);
+        startActivity(intent);
     }
 
-    private void resetOtherItems(int currentItemId) {
-        for (int i = 0; i < bottomNavigationLayouts.length; i++) {
-            if (bottomNavigationLayouts[i].getId() != currentItemId) {
-                icons[i].setColorFilter(new PorterDuffColorFilter(DEFAULT_COLOR, PorterDuff.Mode.SRC_IN));
-                texts[i].setTextColor(DEFAULT_COLOR);
-            }
+    // تحديد النشاط المناسب بناءً على العنصر الذي تم النقر عليه
+    private Class<?> getActivityClass(LinearLayout item) {
+        if (item == homeLayout) return MainActivity.class;
+        if (item == requestsLayout) return RequestsActivity.class;
+        return null;  // في حالة لا يوجد تطابق
+    }
+
+    // تحديث حالة التحديد للـ Bottom Navigation Items
+    private void updateSelection(LinearLayout selectedLayout) {
+        // إلغاء التحديد لجميع العناصر
+        homeLayout.setSelected(false);
+        requestsLayout.setSelected(false);
+        checkInLayout.setSelected(false);
+        salaryLayout.setSelected(false);
+        attendanceLayout.setSelected(false);
+
+        // تحديد العنصر الذي تم النقر عليه
+        selectedLayout.setSelected(true);
+    }
+
+    // التعامل مع الضغط على زر الرجوع في ActionBar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();  // العودة إلى النشاط السابق عند الضغط على زر الرجوع في ActionBar
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }
