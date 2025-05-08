@@ -196,7 +196,7 @@
                 android:src="@drawable/checkin"
                 android:contentDescription="Check In"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/selector" />
+                app:tint="@drawable/selector" />
             <TextView
                 android:id="@+id/checkInLabel"
                 android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/selector"/>
+                android:textColor="@drawable/selector"/>
         </LinearLayout>
 
         <!-- Salary -->
@@ -225,7 +225,7 @@
                 android:src="@drawable/salary"
                 android:contentDescription="Salary"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/selector" />
+                app:tint="@drawable/selector" />
             <TextView
                 android:id="@+id/salaryLabel"
                 android:layout_width="wrap_content"
@@ -234,7 +234,7 @@
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/selector"/>
+                android:textColor="@drawable/selector"/>
         </LinearLayout>
 
         <!-- Home -->
@@ -254,7 +254,7 @@
                 android:src="@drawable/home"
                 android:contentDescription="Home"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/selector" />
+                app:tint="@drawable/selector" />
             <TextView
                 android:id="@+id/homeLabel"
                 android:layout_width="wrap_content"
@@ -263,7 +263,7 @@
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/selector"/>
+                android:textColor="@drawable/selector"/>
         </LinearLayout>
 
         <!-- Attendance -->
@@ -283,7 +283,7 @@
                 android:src="@drawable/attendance"
                 android:contentDescription="Attendance"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/selector" />
+                app:tint="@drawable/selector" />
             <TextView
                 android:id="@+id/attendanceLabel"
                 android:layout_width="wrap_content"
@@ -292,7 +292,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/selector"/>
+                android:textColor="@drawable/selector"/>
         </LinearLayout>
 
         <!-- Requests -->
@@ -312,7 +312,7 @@
                 android:src="@drawable/requests"
                 android:contentDescription="Requests"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/selector" />
+                app:tint="@drawable/selector" />
             <TextView
                 android:id="@+id/requestsLabel"
                 android:layout_width="wrap_content"
@@ -321,7 +321,7 @@
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/selector"/>
+                android:textColor="@drawable/selector"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
