@@ -15,7 +15,7 @@
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#000000"
-        android:fontFamily="@font/poppins_medium"
+        android:fontFamily="@font/poppins_bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,10 +72,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"/>
                 <TextView
-                    android:text="📂 Leave Type"
+                    android:text="📂 Leave Type Name"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#333333"
+                    android:fontFamily="@font/poppins_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"/>
@@ -83,6 +84,7 @@
                     android:id="@+id/leaveTypeSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:background="@drawable/spinner_background"
                     android:layout_marginTop="8dp" />
 
@@ -95,10 +97,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"/>
                 <TextView
-                    android:text="📅 Date Range"
+                    android:text="📅 Select Date"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#333333"
+                    android:fontFamily="@font/poppins_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"/>
@@ -107,8 +110,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:text="Select Dates"
+                    android:fontFamily="@font/poppins_medium"
                     android:textColor="#FFFFFF"
-                    android:backgroundTint="#5C2E91"
+                    android:textSize="18sp"
+                    android:backgroundTint="#4A148C"
                     android:layout_marginTop="8dp" />
 
                 <!-- ✅ Reason for Leave -->
@@ -124,6 +129,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#333333"
+                    android:fontFamily="@font/poppins_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"/>
@@ -132,6 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:hint="Write your reason here..."
+                    android:fontFamily="@font/poppins_medium"
                     android:background="#F1F1F1"
                     android:padding="12dp"
                     android:textColor="#000"
@@ -148,10 +155,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"/>
                 <TextView
-                    android:text="📎 Attach Documents (optional)"
+                    android:text="📎 Choose Attachment (optional)"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#333333"
+                    android:fontFamily="@font/poppins_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"/>
@@ -167,6 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="No file selected"
+                        android:fontFamily="@font/poppins_medium"
                         android:textColor="#888888" />
 
                     <Button
@@ -174,8 +183,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Choose File"
+                        android:fontFamily="@font/poppins_medium"
                         android:textColor="#FFFFFF"
-                        android:backgroundTint="#5C2E91" />
+                        android:textSize="16sp"
+                        android:backgroundTint="#4A148C" />
                 </LinearLayout>
 
                 <!-- ✅ Submit Button -->
@@ -186,7 +197,9 @@
                     android:text="✓ Submit"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
+                    android:fontFamily="@font/poppins_medium"
                     android:backgroundTint="#4A148C"
+                    android:textSize="18sp"
                     android:layout_marginTop="32dp"/>
             </LinearLayout>
         </ScrollView>

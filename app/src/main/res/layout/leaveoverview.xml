@@ -38,8 +38,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="📋 Leave Overview"
-            android:fontFamily="@font/poppins_medium"
+            android:text="Leave Overview"
+            android:fontFamily="@font/poppins_bold"
             android:textColor="#000000"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -83,7 +83,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📝 Type of Leave"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="#000000" />
 
                     <TextView
@@ -91,7 +92,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Marriage Vacation"
-                    android:textSize="16sp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="16sp"
                     android:textColor="#757575"
                     android:layout_marginTop="4dp" />
                 </LinearLayout>
@@ -115,13 +117,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📅 Start Date"
-                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/startDateTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="20-10-2023"
+                        android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
                         android:textColor="#757575"
                         android:layout_marginTop="4dp" />
@@ -146,13 +150,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📅 End Date"
-                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/endDateTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="22-10-2023"
+                        android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
                         android:textColor="#757575"
                         android:layout_marginTop="4dp" />
@@ -176,13 +182,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🗓 Number of Days"
-                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/numberOfDaysTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0 Days"
+                        android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
                         android:textColor="#757575"
                         android:layout_marginTop="4dp" />
@@ -208,13 +216,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="⏳Status"
-                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/statusTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pending"
+                        android:fontFamily="@font/poppins_semibolditalic"
                         android:textSize="16sp"
                         android:textColor="#2E7D32"
                         android:paddingVertical="4dp"
@@ -239,7 +249,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📝 Reason"
-                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/reasonTextView"
@@ -248,6 +259,7 @@
                         android:text="Mental health break"
                         android:textSize="16sp"
                         android:textColor="#757575"
+                        android:fontFamily="@font/poppins_medium"
                         android:layout_marginTop="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -269,7 +281,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📎 Attachment"
-                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
                         android:id="@+id/attachmentTextView"
@@ -277,6 +290,7 @@
                         android:layout_height="wrap_content"
                         android:text="No attachment"
                         android:textSize="16sp"
+                        android:fontFamily="@font/poppins_medium"
                         android:textColor="#757575"
                         android:layout_marginTop="4dp" />
                 </LinearLayout>

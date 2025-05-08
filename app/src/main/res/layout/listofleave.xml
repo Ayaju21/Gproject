@@ -9,13 +9,13 @@
     <!-- Title Bar -->
     <TextView
         android:id="@+id/titleTextView"
-        android:text="My Leave Requests"
+        android:text="Leave Request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#000000"
-        android:fontFamily="@font/poppins_medium"
+        android:fontFamily="@font/poppins_bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="77dp"
+                    android:layout_height="70dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="16dp">
@@ -79,6 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Accepted Leaves"
+                        android:fontFamily="@font/poppins_medium"
                         android:textColor="#757575"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -88,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="25"
-                        android:textColor="#5C2E91"
+                        android:textColor="#4A148C"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -98,15 +99,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="of 30 Per Year"
+                        android:fontFamily="@font/poppins_medium"
                         android:textColor="#757575"
-                        android:textSize="12sp" />
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/checkIcon"
-                        android:layout_width="32dp"
-                        android:layout_height="24dp"
+                        android:layout_width="33dp"
+                        android:layout_height="26dp"
                         android:src="@drawable/present"
-                        app:tint="#5C2E91" />
+                        app:tint="#4A148C" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -115,39 +117,41 @@
             <!-- Leave Requests List Title -->
             <Button
                 android:id="@+id/newLeaveRequestButton"
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="#4A148C"
                 android:gravity="center"
+                android:backgroundTint="#4A148C"
                 android:text="+ New Leave Request"
+                android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="292dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:text="List of My Leaves"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp" />
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/poppins_semibolditalic"
+                    android:text="List of My Leaves"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/filter"
                     android:contentDescription="Leave Icon"
-                    app:tint="#5C2E91" />
+                    android:src="@drawable/filter"
+                    app:tint="#4A148C" />
             </LinearLayout>
 
             <!-- RecyclerView for leave requests -->
