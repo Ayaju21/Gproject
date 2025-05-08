@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,60 +28,92 @@ import java.util.List;
 
 public class LeaveRequest extends AppCompatActivity {
 
+    private LinearLayout checkInLayout, salaryLayout, homeLayout, attendanceLayout, requestsLayout;
+    private ImageView backButton;
+
     private RecyclerView leaveRequestsRecyclerView;
     private LeaveRequestAdapter leaveRequestAdapter;
     private List<LeaveRequestModel> leaveRequestList;
+    private NavigationHelper navigationHelper; // استخدام NavigationHelper
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listofleave);
 
-        // Initialize RecyclerView
+        // تفعيل NavigationHelper
+        navigationHelper = new NavigationHelper(this);
+        navigationHelper.enableBackButton();  // تفعيل زر الرجوع في ActionBar
+        initializeViews();
+        // إعداد Bottom Navigation باستخدام الـ Helper
+        LinearLayout[] bottomNavItems = {homeLayout, requestsLayout, checkInLayout, salaryLayout, attendanceLayout};
+        navigationHelper.setBottomNavigationListeners(bottomNavItems, homeLayout, requestsLayout);
+
+
+        // إعداد RecyclerView
         leaveRequestsRecyclerView = findViewById(R.id.leaveRequestsRecyclerView);
         leaveRequestsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Initialize list to hold leave requests
+        // قائمة الطلبات
         leaveRequestList = new ArrayList<>();
 
-        // Fetch leave data from the server
+        // جلب البيانات من الخادم
         fetchLeaveDataFromServer();
 
-        // New Leave Request Button functionality
+        // زر إنشاء طلب إجازة جديدة
         findViewById(R.id.newLeaveRequestButton).setOnClickListener(v -> {
-            // Go to the LeaveRequest screen when the button is clicked
-            Intent intent = new Intent(LeaveRequest.this, LeaveRequests.class); // Ensure LeaveRequests class exists
+            Intent intent = new Intent(LeaveRequest.this, LeaveRequests.class);
             startActivity(intent);
         });
 
-        // Back button functionality
-        findViewById(R.id.backButton).setOnClickListener(v -> finish());  // Close current activity and go back
+        // تفعيل زر الرجوع
+        findViewById(R.id.backButton).setOnClickListener(v -> finish());
+    }
+    private void initializeViews() {
+        // ربط العناصر في XML بالكود
+        backButton = findViewById(R.id.backButton);
+        checkInLayout = findViewById(R.id.checkInLayout);
+        salaryLayout = findViewById(R.id.salaryLayout);
+        homeLayout = findViewById(R.id.homeLayout);
+        attendanceLayout = findViewById(R.id.attendanceLayout);
+        requestsLayout = findViewById(R.id.requestsLayout);
+
+
+        // تفعيل زر الرجوع باستخدام الـ Helper
+        navigationHelper.setBackButtonListener(backButton);  // استدعاء زر الرجوع
     }
 
-    // Method to fetch leave data from the server
+    private void navigateToActivity(Class<?> activityClass) {
+        // التنقل إلى الأنشطة المناسبة
+        Intent intent = new Intent(LeaveRequest.this, activityClass);
+        startActivity(intent);
+    }
+
+
+// جلب بيانات الإجازات من الخادم
     private void fetchLeaveDataFromServer() {
-        String url = "http://10.0.2.2/leave_requests/get_leave_request.php";  // Adjust the URL as needed
+        String url = "http://10.0.2.2/leave_requests/get_leave_request.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            // Parse the JSON response
+                            // تحليل JSON
                             JSONArray jsonArray = new JSONArray(response);
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject leaveRequest = jsonArray.getJSONObject(i);
-                                String id = leaveRequest.getString("id");  // استلام الـ id
+                                String id = leaveRequest.getString("id");
                                 String leaveType = leaveRequest.getString("leave_type");
                                 String startDate = leaveRequest.getString("start_date");
                                 String endDate = leaveRequest.getString("end_date");
 
-                                // Add to the list
+                                // إضافة البيانات إلى القائمة
                                 leaveRequestList.add(new LeaveRequestModel(id, leaveType, startDate, endDate));
                             }
 
-                            // Set the adapter for RecyclerView
+                            // إعداد الـ RecyclerView Adapter
                             leaveRequestAdapter = new LeaveRequestAdapter(leaveRequestList);
                             leaveRequestsRecyclerView.setAdapter(leaveRequestAdapter);
 
@@ -92,11 +126,11 @@ public class LeaveRequest extends AppCompatActivity {
                 error -> Toast.makeText(LeaveRequest.this, "Error fetching data: " + error.toString(), Toast.LENGTH_SHORT).show()
         );
 
-        // Add the request to the request queue
+        // إضافة الطلب إلى صف الانتظار
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
-    // Adapter class for RecyclerView
+    // Adapter class لـ RecyclerView
     class LeaveRequestAdapter extends RecyclerView.Adapter<LeaveRequestAdapter.LeaveRequestViewHolder> {
 
         private List<LeaveRequestModel> leaveRequests;
@@ -117,11 +151,11 @@ public class LeaveRequest extends AppCompatActivity {
             holder.leaveTypeTextView.setText(leaveRequest.getLeaveType());
             holder.leaveDatesTextView.setText(leaveRequest.getStartDate() + " to " + leaveRequest.getEndDate());
 
-            // Set onClickListener on the CardView
+            // تعيين OnClickListener على CardView
             holder.itemView.setOnClickListener(v -> {
-                // Send leaveRequestId to LeaveOverview activity
+                // إرسال ID طلب الإجازة إلى صفحة LeaveOverview
                 Intent intent = new Intent(LeaveRequest.this, LeaveOverview.class);
-                intent.putExtra("leaveRequestId", leaveRequest.getId());  // Send the ID
+                intent.putExtra("leaveRequestId", leaveRequest.getId());
                 startActivity(intent);
             });
         }
@@ -131,7 +165,7 @@ public class LeaveRequest extends AppCompatActivity {
             return leaveRequests.size();
         }
 
-        // ViewHolder for each leave request
+        // ViewHolder لعرض طلبات الإجازة
         class LeaveRequestViewHolder extends RecyclerView.ViewHolder {
             TextView leaveTypeTextView, leaveDatesTextView;
 
@@ -143,9 +177,9 @@ public class LeaveRequest extends AppCompatActivity {
         }
     }
 
-    // LeaveRequestModel class to hold the data
+    // نموذج طلب الإجازة
     class LeaveRequestModel {
-        private String id;  // إضافة خاصية id
+        private String id;
         private String leaveType;
         private String startDate;
         private String endDate;
@@ -158,9 +192,8 @@ public class LeaveRequest extends AppCompatActivity {
             this.endDate = endDate;
         }
 
-        // Getter methods
         public String getId() {
-            return id;  // إرجاع قيمة الـ id
+            return id;
         }
 
         public String getLeaveType() {
@@ -175,5 +208,4 @@ public class LeaveRequest extends AppCompatActivity {
             return endDate;
         }
     }
-
 }
