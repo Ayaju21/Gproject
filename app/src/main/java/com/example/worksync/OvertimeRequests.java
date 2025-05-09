@@ -68,14 +68,7 @@ public class OvertimeRequests extends AppCompatActivity {
         // Handle submit button click
         submitButton.setOnClickListener(v -> {
             if (!validateForm()) return;
-            sendOvertimeRequestToServer();
-
-            // Sending data to OvertimeOverview
-            Intent intent = new Intent(OvertimeRequests.this, OvertimeOverview.class);
-            intent.putExtra("overtimeDate", overtimeDate);  // Overtime date
-            intent.putExtra("overtimeHours", overtimeHours);  // Overtime hours
-            intent.putExtra("overtimeReason", overtimeReason);  // Overtime reason
-            startActivity(intent);
+            sendOvertimeRequestToServer(); // Only send data to the server
         });
     }
 
@@ -112,7 +105,6 @@ public class OvertimeRequests extends AppCompatActivity {
         }
         return result != null ? result : "attachment";
     }
-
     // Validate the form inputs
     private boolean validateForm() {
         String hoursStr = overtimeHoursEditText.getText().toString().trim();
@@ -130,13 +122,22 @@ public class OvertimeRequests extends AppCompatActivity {
             return false;
         }
 
+
         // Parse the hours to float and validate
         try {
             overtimeHours = hoursStr;  // Store the overtime hours as string
+            float hours = Float.parseFloat(overtimeHours);  // Convert to float
+
+            // Check if overtime hours are within the valid range (greater than 0 and less than or equal to 2)
+            if (hours <= 0 || hours > 2) {
+                Toast.makeText(this, "Hours must be between 0 and 2", Toast.LENGTH_SHORT).show();
+                return false;
+            }
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Invalid hours input", Toast.LENGTH_SHORT).show();
             return false;
         }
+
 
         // Check if the reason is provided
         if (overtimeReason.isEmpty()) {
@@ -147,9 +148,10 @@ public class OvertimeRequests extends AppCompatActivity {
         return true;
     }
 
+
     // Send the overtime request to the server
     private void sendOvertimeRequestToServer() {
-        String url = "http://10.0.2.2/leave_requests/insert_overtime_request.php";
+        String url = "http://10.0.2.2/leave_requests/insert_overtime_request.php"; // Change the URL to match your server's path
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
