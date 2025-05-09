@@ -42,6 +42,9 @@
             android:name=".OvertimeRequest"
             android:exported="true" />
         <activity
+            android:name=".OvertimeOverview"
+            android:exported="true" />
+        <activity
             android:name=".LeaveOverview"
             android:exported="true" />
 

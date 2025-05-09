@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class OvertimeOverview extends AppCompatActivity {
 
     // TextViews for overtime details
-    private TextView overtimeDateRange, overtimeHours, overtimeReason, attachmentTextView;
+    private TextView overtimeDateRange, overtimeHours, overtimeReason, overtimeStatus, attachmentTextView;
     private ImageView backButton;
     private String overtimeRequestId;
 
@@ -35,9 +35,11 @@ public class OvertimeOverview extends AppCompatActivity {
         overtimeHours = findViewById(R.id.overtimeHours);
         overtimeReason = findViewById(R.id.overtimeReason);
         attachmentTextView = findViewById(R.id.attachmentTextView);
+        overtimeStatus= findViewById(R.id.overtimeStatus);
         backButton = findViewById(R.id.backButton);
 
         // Get the overtime request ID from the Intent
+        Intent intent = getIntent();
         overtimeRequestId = getIntent().getStringExtra("overtimeRequestId");
 
         // Load overtime details from the server

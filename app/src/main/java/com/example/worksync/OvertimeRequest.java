@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,27 +31,59 @@ public class OvertimeRequest extends AppCompatActivity {
     private RecyclerView overtimeRequestsRecyclerView;
     private OvertimeRequestAdapter overtimeRequestAdapter;
     private List<OvertimeRequestModel> overtimeRequestList;
+    private NavigationHelper navigationHelper; // استخدام NavigationHelper
+    private ImageView backButton;
+    private LinearLayout checkInLayout, salaryLayout, homeLayout, attendanceLayout, requestsLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listofovertime);
 
+        // تفعيل NavigationHelper
+        navigationHelper = new NavigationHelper(this);
+        navigationHelper.enableBackButton();  // تفعيل زر الرجوع في ActionBar
+        initializeViews();
+        // إعداد Bottom Navigation باستخدام الـ Helper
+        LinearLayout[] bottomNavItems = {homeLayout, requestsLayout, checkInLayout, salaryLayout, attendanceLayout};
+        navigationHelper.setBottomNavigationListeners(bottomNavItems, homeLayout, requestsLayout);
         // تهيئة الـ RecyclerView
         overtimeRequestsRecyclerView = findViewById(R.id.overtimeRequestsRecyclerView);
         overtimeRequestsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         overtimeRequestList = new ArrayList<>();
 
         // جلب البيانات من الخادم
         fetchOvertimeDataFromServer();
 
-        // تعيين OnClickListener على زر "New Overtime Request"
+        // زر إنشاء طلب إجازة جديدة
         findViewById(R.id.newOvertimeRequestButton).setOnClickListener(v -> {
-            Intent intent = new Intent(OvertimeRequest.this, OvertimeRequests.class);  // الانتقال إلى صفحة OvertimeRequests
+            Intent intent = new Intent(OvertimeRequest.this, OvertimeRequests.class);
             startActivity(intent);
         });
+
+        // تفعيل زر الرجوع
+        findViewById(R.id.backButton).setOnClickListener(v -> finish());
     }
+
+    private void initializeViews() {
+        // ربط العناصر في XML بالكود
+        backButton = findViewById(R.id.backButton);
+        checkInLayout = findViewById(R.id.checkInLayout);
+        salaryLayout = findViewById(R.id.salaryLayout);
+        homeLayout = findViewById(R.id.homeLayout);
+        attendanceLayout = findViewById(R.id.attendanceLayout);
+        requestsLayout = findViewById(R.id.requestsLayout);
+
+
+        // تفعيل زر الرجوع باستخدام الـ Helper
+        navigationHelper.setBackButtonListener(backButton);  // استدعاء زر الرجوع
+    }
+    private void navigateToActivity(Class<?> activityClass) {
+        // التنقل إلى الأنشطة المناسبة
+        Intent intent = new Intent(OvertimeRequest.this, activityClass);
+        startActivity(intent);
+    }
+
 
     private void fetchOvertimeDataFromServer() {
         String url = "http://10.0.2.2/leave_requests/get_overtime_data.php";  // استبدل بـ URL الخاص بك
@@ -64,9 +98,9 @@ public class OvertimeRequest extends AppCompatActivity {
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject overtimeRequest = jsonArray.getJSONObject(i);
-                                String id = overtimeRequest.optString("id", "");
-                                String overtimeDate = overtimeRequest.optString("overtime_date", "No date");
-                                String reason = overtimeRequest.optString("reason", "No reason provided");
+                                String id = overtimeRequest.optString("id");
+                                String overtimeDate = overtimeRequest.optString("overtime_date");
+                                String reason = overtimeRequest.optString("reason");
 
                                 // إضافة البيانات إلى القائمة
                                 overtimeRequestList.add(new OvertimeRequestModel(id, overtimeDate, reason));
