@@ -2,7 +2,6 @@ package com.example.worksync;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +32,7 @@ public class RequestsActivity extends AppCompatActivity {
 
         // تفعيل النقر على CardView للانتقال إلى الأنشطة المناسبة
         leaveRequestCardView.setOnClickListener(v -> navigateToActivity(LeaveRequest.class));
-        overtimeRequestCardView.setOnClickListener(v -> navigateToActivity(OvertimeRequests.class));
+        overtimeRequestCardView.setOnClickListener(v -> navigateToActivity(OvertimeRequest.class));
     }
 
     private void initializeViews() {

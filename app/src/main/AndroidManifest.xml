@@ -38,9 +38,8 @@
         <activity
             android:name=".OvertimeRequests"
             android:exported="true" />
-
         <activity
-            android:name=".ListOvertime"
+            android:name=".OvertimeRequest"
             android:exported="true" />
         <activity
             android:name=".LeaveOverview"

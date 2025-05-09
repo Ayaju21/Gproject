@@ -106,6 +106,7 @@ public class LeaveRequests extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(LeaveRequests.this, "Leave request submitted successfully", Toast.LENGTH_SHORT).show();
+                        clearFields();  // Clear all fields after submission
                     }
                 },
                 error -> Toast.makeText(LeaveRequests.this, "Error: " + error.toString(), Toast.LENGTH_SHORT).show()) {
@@ -249,4 +250,11 @@ public class LeaveRequests extends AppCompatActivity {
 
         return true;
     }
+    private void clearFields() {
+        leaveTypeSpinner.setSelection(0);  // Clear overtime hours input
+        reasonTextView.setText("");  // Clear reason input
+        selectDateButton.setText("Select Date");  // Reset the date button
+        fileNameTextView.setText("");  // Clear file name text view
+    }
+
 }

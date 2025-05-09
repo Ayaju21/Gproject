@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Leave Overview"
+            android:text="Overtime Overview"
             android:fontFamily="@font/poppins_bold"
             android:textColor="#000000"
             android:textSize="22sp"
@@ -63,43 +63,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Type of Leave Card -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="#FFFFFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📝 Type of Leave"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:id="@+id/leaveTypeTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Marriage Vacation"
-                        android:fontFamily="@font/poppins_medium"
-                        android:textSize="16sp"
-                    android:textColor="#757575"
-                    android:layout_marginTop="4dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Start Date Card -->
+            <!-- Overtime Start Date Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,15 +80,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="📅 Start Date"
+                        android:text="📅 Overtime Date"
                         android:fontFamily="@font/poppins_semibold"
                         android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
-                        android:id="@+id/startDateTextView"
+                        android:id="@+id/overtimeDateRange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="20-10-2023"
+                        android:text="3 Aug – 7 Aug"
                         android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
                         android:textColor="#757575"
@@ -132,7 +96,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- End Date Card -->
+            <!-- Overtime Hours Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,15 +113,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="📅 End Date"
+                        android:text="⏰ Overtime Hours"
                         android:fontFamily="@font/poppins_semibold"
                         android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
-                        android:id="@+id/endDateTextView"
+                        android:id="@+id/overtimeHours"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="22-10-2023"
+                        android:text="10 Hours"
                         android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
                         android:textColor="#757575"
@@ -165,9 +129,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-
-
-            <!-- The Reason Card -->
+            <!-- Reason for Overtime Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,6 +137,7 @@
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
                 app:cardBackgroundColor="#FFFFFF">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -183,15 +146,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="📝 Reason"
+                        android:text="📝 Reason for Overtime"
                         android:fontFamily="@font/poppins_semibold"
                         android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
-                        android:id="@+id/reasonTextView"
+                        android:id="@+id/overtimeReason"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mental health break"
+                        android:text="Urgent project task"
                         android:textSize="16sp"
                         android:textColor="#757575"
                         android:fontFamily="@font/poppins_medium"
@@ -199,41 +162,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Number of Days Card -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
-                app:cardBackgroundColor="#FFFFFF">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🗓 Number of Days"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:textSize="16sp"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:id="@+id/numberOfDaysTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 Days"
-                        android:fontFamily="@font/poppins_medium"
-                        android:textSize="16sp"
-                        android:textColor="#757575"
-                        android:layout_marginTop="4dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            <!-- Overtime Status Card -->
 
 
-
-            <!-- Status Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -256,7 +187,7 @@
                         android:textSize="16sp"
                         android:textColor="#000000" />
                     <TextView
-                        android:id="@+id/statusTextView"
+                        android:id="@+id/overtimeStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pending"
@@ -268,7 +199,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Attachment Card -->
+            <!-- Overtime Attachment Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

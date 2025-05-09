@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/poppins_semibolditalic"
-                    android:text="List of My Leaves"
+                    android:text="List of My Leaves "
                     android:textColor="#000000"
                     android:textSize="18sp" />
 

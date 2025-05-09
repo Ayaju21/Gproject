@@ -185,7 +185,7 @@
                         android:text="Choose File"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#FFFFFF"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:backgroundTint="#4A148C" />
                 </LinearLayout>
 
@@ -199,7 +199,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/poppins_medium"
                     android:backgroundTint="#4A148C"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:layout_marginTop="32dp"/>
             </LinearLayout>
         </ScrollView>
