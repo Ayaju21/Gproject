@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F0EBF8"
+    android:background="#F5F5F5"
     android:padding="16dp">
 
     <!-- Header Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#EDE7F6"
+        android:background="#F5F5F5"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="12dp"
@@ -31,7 +31,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="#000000" />
-
         <!-- Title -->
         <TextView
             android:id="@+id/titleTextView"
@@ -55,7 +54,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="12dp">
+        android:padding="16dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical">
 
         <!-- Content Cards -->
         <LinearLayout
@@ -63,13 +64,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Overtime Start Date Card -->
+            <!-- Overtime Date Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="#FFFFFF">
 
                 <LinearLayout
@@ -81,15 +82,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📅 Overtime Date"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
-                        android:textColor="#000000" />
+                        android:textColor="#333333" />
                     <TextView
                         android:id="@+id/overtimeDateRange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3 Aug – 7 Aug"
-                        android:fontFamily="@font/poppins_medium"
+                        android:fontFamily="@font/poppins_regular"
                         android:textSize="16sp"
                         android:textColor="#757575"
                         android:layout_marginTop="4dp" />
@@ -100,9 +101,9 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="#FFFFFF">
 
                 <LinearLayout
@@ -114,15 +115,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="⏰ Overtime Hours"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
-                        android:textColor="#000000" />
+                        android:textColor="#333333" />
                     <TextView
                         android:id="@+id/overtimeHours"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="10 Hours"
-                        android:fontFamily="@font/poppins_medium"
+                        android:fontFamily="@font/poppins_regular"
                         android:textSize="16sp"
                         android:textColor="#757575"
                         android:layout_marginTop="4dp" />
@@ -133,9 +134,9 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="#FFFFFF">
 
                 <LinearLayout
@@ -147,55 +148,54 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📝 Reason for Overtime"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
-                        android:textColor="#000000" />
+                        android:textColor="#333333" />
                     <TextView
                         android:id="@+id/overtimeReason"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Urgent project task"
+                        android:fontFamily="@font/poppins_regular"
                         android:textSize="16sp"
                         android:textColor="#757575"
-                        android:fontFamily="@font/poppins_medium"
                         android:layout_marginTop="4dp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- Overtime Status Card -->
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="#FFFFFF">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="⏳Status"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:text="⏳ Status"
+                        android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:id="@+id/overtimeStatus"
+                        android:textColor="#333333"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/overtimeStatus"
                         android:text="Pending"
-                        android:fontFamily="@font/poppins_semibolditalic"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textSize="16sp"
-                        android:textColor="#2E7D32"
+                        android:textColor="#4CAF50"
                         android:paddingVertical="4dp"
-                        android:paddingHorizontal="8dp" />
+                        android:paddingHorizontal="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -203,10 +203,11 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
                 app:cardBackgroundColor="#FFFFFF">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -216,9 +217,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📎 Attachment"
-                        android:fontFamily="@font/poppins_semibold"
+                        android:fontFamily="@font/poppins_medium"
                         android:textSize="16sp"
-                        android:textColor="#000000" />
+                        android:textColor="#333333" />
                     <TextView
                         android:id="@+id/attachmentTextView"
                         android:layout_width="wrap_content"
