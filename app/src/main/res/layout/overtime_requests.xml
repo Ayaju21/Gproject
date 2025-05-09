@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center_horizontal" />
@@ -28,7 +28,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="8dp"
         android:src="?attr/actionModeCloseDrawable"
@@ -36,12 +36,13 @@
         app:tint="#000000"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
     <!-- Form Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/formCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
+        android:layout_margin="24dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
         app:cardBackgroundColor="@android:color/white"
@@ -53,7 +54,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp">
+            android:padding="24dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,7 +70,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"/>
+                    android:layout_marginTop="24dp" />
                 <Button
                     android:id="@+id/selectDateButton"
                     android:layout_width="match_parent"
@@ -79,7 +80,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:backgroundTint="#4A148C"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="16dp" />
 
                 <!-- Overtime Hours -->
                 <TextView
@@ -90,7 +91,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"/>
+                    android:layout_marginTop="32dp" />
                 <EditText
                     android:id="@+id/overtimeHoursEditText"
                     android:layout_width="match_parent"
@@ -103,7 +104,7 @@
                     android:padding="12dp"
                     android:gravity="start|center_vertical"
                     android:inputType="numberDecimal"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="16dp" />
 
                 <!-- Reason for Overtime -->
                 <TextView
@@ -114,7 +115,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"/>
+                    android:layout_marginTop="32dp" />
                 <EditText
                     android:id="@+id/reasonTextView"
                     android:layout_width="match_parent"
@@ -127,7 +128,7 @@
                     android:textColorHint="#999"
                     android:gravity="top|start"
                     android:inputType="textMultiLine"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="16dp" />
 
                 <!-- Attach Documents (Optional) -->
                 <TextView
@@ -138,12 +139,12 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"/>
+                    android:layout_marginTop="32dp" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="16dp">
 
                     <TextView
                         android:id="@+id/fileNameTextView"
@@ -176,7 +177,8 @@
                     android:fontFamily="@font/poppins_medium"
                     android:backgroundTint="#4A148C"
                     android:textSize="16sp"
-                    android:layout_marginTop="32dp"/>
+                    android:layout_marginTop="48dp"
+                    android:layout_marginBottom="24dp" />
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

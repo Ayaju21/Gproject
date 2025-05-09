@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
@@ -18,33 +19,53 @@ public class MainActivity extends AppCompatActivity {
     private TextView dateText;
     private TextView hoursText;
     private Handler handler;
-    private LinearLayout homeLayout;
-    private LinearLayout requestsLayout;
+    private LinearLayout checkInLayout, salaryLayout, homeLayout, attendanceLayout, requestsLayout;
+    private NavigationHelper navigationHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize UI elements
+        // Initialize NavigationHelper and set back button functionality
+        navigationHelper = new NavigationHelper(this);
+        navigationHelper.enableBackButton();
+
+        // Initialize views
+        initializeViews();
+
+        // Set up Bottom Navigation listeners
+        LinearLayout[] bottomNavItems = {homeLayout, requestsLayout, checkInLayout, salaryLayout, attendanceLayout};
+        navigationHelper.setBottomNavigationListeners(bottomNavItems, homeLayout, requestsLayout);
+
+        // Update date and hours
+        updateDate();
+        startUpdatingHours();
+
+    }
+
+    private void initializeViews() {
+        // Link UI elements
+        checkInLayout = findViewById(R.id.checkInLayout);
+        salaryLayout = findViewById(R.id.salaryLayout);
+        homeLayout = findViewById(R.id.homeLayout);
+        attendanceLayout = findViewById(R.id.attendanceLayout);
+        requestsLayout = findViewById(R.id.requestsLayout);
+
         dateText = findViewById(R.id.dateText);
         hoursText = findViewById(R.id.hoursText);
         handler = new Handler(Looper.getMainLooper());
-        homeLayout = findViewById(R.id.homeLayout);
-        requestsLayout = findViewById(R.id.requestsLayout);
-
-        updateDate();  // update the date.
-        startUpdatingHours(); // start updating hours.
-        setupNavigation();  // setup the nav bar.
     }
 
     private void updateDate() {
+        // Update the current date in the TextView
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM, dd", Locale.getDefault());
         String currentDate = dateFormat.format(new Date());
         dateText.setText(currentDate);
     }
 
     private void startUpdatingHours() {
+        // Create a new thread to update the current time every second
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -60,38 +81,17 @@ public class MainActivity extends AppCompatActivity {
                         Thread.sleep(1000); // Sleep for 1 second
                     }
                 } catch (InterruptedException e) {
-                    // Handle thread interruption (e.g., log it)
+                    // Handle thread interruption
                 }
             }
         }).start();
     }
 
-    private void setupNavigation() {
-        // Home button functionality.
-        homeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Reopen the same MainActivity.
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        // Requests button functionality
-        requestsLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to the RequestsActivity.
-                Intent intent = new Intent(MainActivity.this, RequestsActivity.class); // Corrected class name
-                startActivity(intent);
-            }
-        });
-
-    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // You might want to stop the thread here if it's not handled elsewhere to prevent memory leaks.
+        // Handle thread termination here if needed to avoid memory leaks
     }
 }
